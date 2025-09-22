@@ -1,0 +1,215 @@
+/* General Styles */
+body {
+  margin: 0;
+  font-family: 'Inter', sans-serif;
+  background-color: #f8f9fa;
+  color: #343a40;
+  overflow-y: scroll; /* Ensure scrollbar is always visible to prevent layout shift */
+}
+
+/* Container Layout */
+.container {
+  max-width: 540px;
+  margin: 60px auto;
+  padding: 0 20px;
+  position: relative; /* For background image positioning */
+  z-index: 1; /* Ensure content is above the background */
+}
+
+/* Background Image */
+body::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url('https://images.unsplash.com/photo-1567631643547-67a2dd59f266?fm=jpg&q=60&w=3000&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTl8fGZhc2hpb24lMjBkZXNpZ25lcnxlbnwwfHwwfHx8MA%3D%3D'); 
+  background-size: cover;
+  background-position: center;
+  opacity: 0.4; /* Adjust opacity as needed */
+  z-index: -1; /* Place behind content */
+  transition: opacity 0.3s ease; /* Smooth transition for opacity */
+}
+
+/* Card Style */
+.screen {
+  background: rgba(255, 255, 255, 0.9); /* Semi-transparent white */
+  border-radius: 20px;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08); /* Slightly stronger shadow */
+  padding: 40px 30px;
+  animation: fadeIn 0.5s ease-in-out;
+  backdrop-filter: blur(5px); /* Add a subtle glass effect */
+}
+
+/* Header */
+.header h1 {
+  font-size: 2.4rem; /* Slightly larger */
+  margin-bottom: 8px;
+  color: #343a40; /* Darker color */
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1); /* Subtle text shadow */
+}
+
+.header p {
+  color: #6c757d; /* Muted color */
+  font-size: 1rem;
+  margin-bottom: 32px;
+}
+
+/* Form Groups */
+.form-group {
+  margin-bottom: 36px; /* More spacing */
+}
+
+.form-group label {
+  font-weight: 600;
+  margin-bottom: 12px;
+  display: block;
+  font-size: 1.1rem;
+  color: #495057; /* Slightly darker */
+}
+
+/* Inputs & Selects */
+input[type="number"],
+input[type="email"], /* Added email input style */
+input[type="password"], /* Added password input style */
+select {
+  width: 100%;
+  padding: 14px 16px; /* More padding */
+  border-radius: 12px; /* More rounded */
+  border: 1px solid #ced4da;
+  font-size: 1.05rem;
+  margin-top: 10px;
+  box-sizing: border-box;
+  transition: border-color 0.3s, box-shadow 0.3s;
+  color: #495057; /* Text color */
+}
+
+input:focus,
+select:focus {
+  border-color: #5499c7; /* Focus color */
+  outline: none;
+  box-shadow: 0 0 0 4px rgba(84, 153, 199, 0.25); /* Stronger focus shadow */
+}
+
+/* Grid Layout for Options */
+.grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 18px; /* More spacing */
+  margin-top: 14px;
+}
+
+.grid-item {
+  background: #fff; /* White background */
+  border-radius: 14px; /* More rounded */
+  padding: 20px 14px; /* More padding */
+  text-align: center;
+  cursor: pointer;
+  min-width: 100px; /* Slightly wider */
+  flex: 1 1 calc(33% - 18px);
+  transition: all 0.3s ease-in-out;
+  border: 2px solid transparent;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.04); /* More pronounced shadow */
+  color: #495057; /* Text color */
+}
+
+.grid-item:hover {
+  background: #f0f8ff; /* Lighter hover */
+  transform: translateY(-3px); /* Lift on hover */
+  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.06); /* Stronger hover shadow */
+}
+
+.grid-item.selected {
+  border: 2px solid #5499c7; /* Selected border color */
+  background: #eaf4ff;
+  box-shadow: 0 6px 16px rgba(84, 153, 199, 0.2); /* Stronger selected shadow */
+  color: #343a40; /* Selected text color */
+}
+
+/* Buttons */
+.btn {
+  padding: 14px 30px; /* More padding */
+  border-radius: 12px; /* More rounded */
+  font-size: 1.1rem;
+  border: none;
+  cursor: pointer;
+  transition: background 0.25s, transform 0.1s, box-shadow 0.2s;
+  font-weight: 500;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.08); /* Button shadow */
+}
+
+.btn:active {
+  transform: scale(0.97); /* Less scaling */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.08); /* Reduced shadow on click */
+}
+
+.btn-primary {
+  background: #5499c7; /* Primary color */
+  color: #fff;
+}
+
+.btn-primary:hover {
+  background: #34698d; /* Darker primary color */
+  box-shadow: 0 6px 12px rgba(84, 153, 199, 0.3); /* Stronger hover shadow */
+}
+
+.btn-secondary {
+  background: #f8f9fa; /* Light secondary */
+  color: #495057;
+}
+
+.btn-secondary:hover {
+  background: #e9ecef; /* Slightly darker */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Secondary hover shadow */
+}
+
+/* Skin tone circle */
+.grid-item div[style*="background-color"] {
+  border: 2px solid #ddd; /* Lighter border */
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+}
+
+.grid-item.selected div[style*="background-color"] {
+  border-color: #5499c7; /* Selected border color */
+  box-shadow: 0 2px 6px rgba(84, 153, 199, 0.3); /* Stronger selected shadow */
+}
+
+/* Error Message */
+.error-message {
+  color: #dc3545;
+  font-size: 0.9rem;
+  margin-top: 6px;
+}
+
+/* Transitions */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(12px); /* More pronounced fade-in */
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Signup Footer */
+.signup-footer {
+  margin-top: 20px;
+  text-align: center;
+  color: #6c757d;
+  font-size: 0.9rem;
+}
+
+.signup-footer .link {
+  color: #5499c7;
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.2s;
+}
+
+.signup-footer .link:hover {
+  color: #34698d;
+  text-decoration: underline;
+}
